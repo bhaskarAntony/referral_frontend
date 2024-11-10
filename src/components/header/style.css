@@ -1,0 +1,31 @@
+header{
+    border-bottom: 1px solid #ccc;
+}
+.logo{
+    width: 180px;
+}
+.coins{
+  display: flex;
+  gap: 2px;
+  align-items: center; 
+  background-color: #fad24038;
+  padding: 2px 10px;
+  border-radius: 100px;
+  color: #5c3300;
+  font-weight: 700;
+}
+.coins img{
+    width: 25px;
+}
+ .m-ul{
+    padding: 0px !important;
+    list-style-position: inside !important;
+}
+ .m-ul li{
+    padding: 10px;
+    border-block-start: 1px solid #ccc;
+}
+element.style {
+    display: block;
+    padding-left: 0px !important;
+}

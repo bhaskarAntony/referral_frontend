@@ -1,0 +1,18 @@
+.hero ul{
+    list-style-type: none;
+    list-style-position: outside !important;
+    padding-left: 15px;
+    list-style-image: url('./sparkle.png');
+    
+}
+.hero ul li{
+    font-size: 1.1rem;
+}
+@media(max-width:576px){
+    .hero .btn-main, .hero .btn-outline-primary, .btn-100{
+        width: 100% !important;
+    }
+    .logo{
+        width: 140px !important;
+    }
+}

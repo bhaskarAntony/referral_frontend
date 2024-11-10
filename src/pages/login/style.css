@@ -1,0 +1,56 @@
+.login-container{
+    min-height: 100vh;
+}
+.ride{
+    min-height: 100vh;
+
+}
+.driver-card img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+}
+.book-btn{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: linear-gradient(45deg, #4828d8, #931ccf);
+    color: #fff;
+    font-size: 900;
+    font-size: 1.2rem;
+}
+
+.success-image{
+    width: 250px;
+}
+
+.landing{
+    min-height: 100vh;
+    background-color: #1b6bde;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.landing img{
+    width: 100px;
+    animation: animate 1.5s linear;
+}
+
+@keyframes animate{
+    from{
+        transform: scale(0.5);
+    }
+    to{
+        transform: scale(1.1);
+    }
+}
+.selected{
+    border: 2px solid #1b6bde;
+    background-color: #549bff25 !important;
+}
+.register{
+    min-height: 100vh;
+    background-color: #e6f1ff57;
+}

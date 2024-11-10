@@ -1,0 +1,7 @@
+.friend-modal .form-control{
+    padding: 10px !important;
+    border: 1px solid rgba(188, 199, 207, 0.733) !important;
+}
+.form-control:focus{
+    box-shadow: none !important;
+}

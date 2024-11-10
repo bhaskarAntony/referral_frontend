@@ -1,0 +1,24 @@
+.referal-rewards table td img{
+    width: 30px;
+
+}
+.referal-rewards{
+    background-color: rgba(234, 250, 255, 0.525);
+}
+table, td, th{
+    border: none !important;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px !important;
+    color: gray;
+}
+tr{
+    border: 1px solid #ccc;
+}
+
+.reward-table{
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+}
+
