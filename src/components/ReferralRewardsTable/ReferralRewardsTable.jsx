@@ -6,11 +6,11 @@ import ReferralCalculatorPopup from '../ReferralCalculatorPopup/ReferralCalculat
 
 const ReferralRewardsTable = () => {
   const preSetData = [
-    { referrals: 1, cash: '₹10,000', coins: 200, vouchers: '₹2,000' },
-    { referrals: 2, cash: '₹20,000', coins: 400, vouchers: '₹4,000' },
-    { referrals: 3, cash: '₹30,000', coins: 600, vouchers: '₹6,000' },
-    { referrals: 4, cash: '₹40,000', coins: 800, vouchers: '₹8,000' },
-    { referrals: 5, cash: '₹50,000', coins: 1000, vouchers: '₹10,000' },
+    { referrals: 1, cash: '₹1,000', coins: 200, vouchers: '₹500' },
+    { referrals: 2, cash: '₹2,000', coins: 400, vouchers: '₹1,000' },
+    { referrals: 3, cash: '₹3,000', coins: 600, vouchers: '₹1,500' },
+    { referrals: 4, cash: '₹4,000', coins: 800, vouchers: '₹2,000' },
+    { referrals: 5, cash: '₹5,000', coins: 1000, vouchers: '₹2,500' },
   ];
 
   const postSetData = [

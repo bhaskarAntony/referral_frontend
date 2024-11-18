@@ -10,12 +10,12 @@ const ReferralStepper = () => {
     const referralRewards = [
         { referrals: 1, cashReward: '₹1,000', scalerCoins: 50, vouchers: '₹500' },
         { referrals: 2, cashReward: '₹2,000', scalerCoins: 100, vouchers: '₹1,000' },
-        { referrals: 3, cashReward: '₹10,000', scalerCoins: 200, vouchers: '₹2,000' },
-        { referrals: 4, cashReward: '₹15,000', scalerCoins: 300, vouchers: '₹3,000' },
-        { referrals: 5, cashReward: '₹20,000', scalerCoins: 400, vouchers: '₹4,000' },
-        { referrals: 6, cashReward: '₹25,000', scalerCoins: 500, vouchers: '₹5,000' },
-        { referrals: 7, cashReward: '₹30,000', scalerCoins: 600, vouchers: '₹6,000' },
-        { referrals: 8, cashReward: '₹35,000', scalerCoins: 700, vouchers: '₹7,000' },
+        { referrals: 3, cashReward: '₹3,000', scalerCoins: 200, vouchers: '₹1,500' },
+        { referrals: 4, cashReward: '₹4,000', scalerCoins: 300, vouchers: '₹2,000' },
+        { referrals: 5, cashReward: '₹5,000', scalerCoins: 400, vouchers: '₹2,500' },
+        { referrals: 6, cashReward: '₹6,000', scalerCoins: 500, vouchers: '₹3,000' },
+        { referrals: 7, cashReward: '₹7,000', scalerCoins: 600, vouchers: '₹3,500' },
+        { referrals: 8, cashReward: '₹8,000', scalerCoins: 700, vouchers: '₹4,000' },
       ];
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));

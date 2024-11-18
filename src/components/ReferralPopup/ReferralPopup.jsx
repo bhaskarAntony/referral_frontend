@@ -8,6 +8,7 @@ import AuthContext from '../context/AuthContext';
 import Loading from '../loading/Loading';
 import { Alert, Snackbar } from '@mui/material';
 import Callback from '../callback/Callback';
+import WhatsappShare from '../whatsappPopup/WhatsappShare';
 
 function ReferralPopup({ show, hide }) {
   const [showFormModal, setShowFormModal] = useState(false);
@@ -20,6 +21,10 @@ function ReferralPopup({ show, hide }) {
     email: '',
     referredby: ''  // Will remain empty
   });
+
+  const [whatsAppPopupShare, setWhatsAppPopupShare] = useState(false);
+  const handleShowWhatsappShare = () =>setWhatsAppPopupShare(true)
+  const handleHideWhatsappShare = () =>setWhatsAppPopupShare(false)
 
   const handleCloseReferralModal = () => hide();
   
@@ -53,7 +58,7 @@ function ReferralPopup({ show, hide }) {
     e.preventDefault();
     setisLoading(true)
     try {
-      await axios.post('http://localhost:5000/api/new/friend', {...friendData, referredby:user?._id});
+      await axios.post('https://referral-backend-myev.onrender.com/api/new/friend', {...friendData, referredby:user?._id});
       setPopup({ open: true, type: 'success', message: 'Friend details added successfully!' });
       setisLoading(false)
       handleCloseFormModal();
@@ -68,6 +73,9 @@ function ReferralPopup({ show, hide }) {
   if(isLoading){
     return <Loading/>
   }
+
+
+
 
   return (
     <div className="text-center">
@@ -111,7 +119,7 @@ function ReferralPopup({ show, hide }) {
               </span>
             </div>
             <div className="col-md-5 d-flex flex-wrap btn-100 justify-content-end align-items-center">
-              <button className="btn btn-outline-primary btn-100 mt-3 mt-md-0">Share on WhatsApp</button>
+              <button className="btn btn-outline-primary btn-100 mt-3 mt-md-0" onClick={handleShowWhatsappShare}>Share on WhatsApp</button>
             </div>
           </div>
         </Modal.Footer>
@@ -190,6 +198,7 @@ function ReferralPopup({ show, hide }) {
       </Snackbar>
 
       <Callback show={showCallback} onClose={handleHideCallback}/>
+      <WhatsappShare show={whatsAppPopupShare} onClose={handleHideWhatsappShare}/>
     </div>
   );
 }

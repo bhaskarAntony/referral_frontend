@@ -1,0 +1,45 @@
+.top img{
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    background-color: #fff;
+    border: 3px solid #fff;
+    padding: 5px;
+}
+.top{
+    min-height: 150px;
+    background-color: #0c2131;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+.share-card{
+    border-radius: 10px;
+
+}
+.completed{
+   background:url(https://64.media.tumblr.com/431ecc0d5b0da5872bb88b34c2cdd856/de14cb9be1a46967-bd/s400x600/3ee348498458e6d49f65ecbdb167b4e6796871d2.gif) repeat, linear-gradient(45deg, #f11c4a, #2e00e7, #643cf4) !important;
+   color: #fff;
+
+}
+
+.in_progress{
+    background: linear-gradient(45deg, #000430, #231658, #af56fd);
+    color: #fff;
+ }
+ .pending{
+    background: #b1afaf;
+    opacity: 0.4;
+    user-select: none;
+    cursor:not-allowed;
+ }
+ .share-card img, .rewards img{
+    width: 40px;
+ }
+ .share-card progress{
+    width: 100%;
+    height: 40px;
+    accent-color: #fff;
+ }

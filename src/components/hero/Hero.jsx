@@ -43,7 +43,7 @@ function Hero() {
                <small className="small text-secondary mt-2 d-block">So far, more Be Practicalites have successfully referred more learners!</small>
             </div>
             <div className="col-md-5 mt-md-0 mt-3">
-                <img src="https://img.freepik.com/free-vector/generating-new-leads-concept-illustration_114360-7654.jpg?ga=GA1.1.1538238808.1729515699&semt=ais_hybrid" alt="" className="w-100" />
+                <img src="https://img.freepik.com/premium-vector/woman-talking-using-megaphone-refer-friends-exchange-rewards-referral-program-concept-flat-vector-illustration_923732-4937.jpg?w=740" alt="" className="w-100" />
 
                 <p className=" text-center d-flex flex-wrap gap-3 align-items-center justify-content-center">
                     <small className="small text-dark">Your unique referral code</small>

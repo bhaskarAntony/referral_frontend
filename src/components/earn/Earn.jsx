@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ReferralRewards from './ReferralRewards'
 import ReferralPopup from '../ReferralPopup/ReferralPopup';
 import Callback from '../callback/Callback';
+import pdf from '../../files/Referral_Program_Guide.pdf'
 
 function Earn({show, onClose, onOpen}) {
     const [showModal, setShowModal] = useState(false);
@@ -15,7 +16,7 @@ function Earn({show, onClose, onOpen}) {
         <div className="col-md-8">
             <h1 className="fs-3 fw-bold">Know how much you can earn by Referring <span className="text-small"><i class="bi bi-question-circle fs-6"></i></span></h1>
 
-            <Link className='d-flex gap-2 mt-3'><i class="bi bi-download"></i> <span >View Referral Reward Details</span></Link>
+            <a className='d-flex gap-2 mt-3' download={pdf} href={pdf}><i class="bi bi-download"></i> <span >View Referral Reward Details</span></a>
 
         </div>
         <div className="col-md-4 mt-3 mt-md-0 d-flex justify-content-end align-items-center">
