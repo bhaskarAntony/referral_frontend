@@ -34,7 +34,7 @@ const AuthState = ({ children }) => {
     }
 
     try {
-      const res = await axios.get(`https://referral-backend-myev.onrender.com/api/auth`);
+      const res = await axios.get(`http://localhost:5000/api/auth`);
       dispatch({
         type: USER_LOADED,
         payload: res.data,
@@ -57,7 +57,7 @@ const AuthState = ({ children }) => {
     };
 
     try {
-      const res = await axios.post(`https://referral-backend-myev.onrender.com/api/auth/register`, formData, config);
+      const res = await axios.post(`http://localhost:5000/api/auth/register`, formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
@@ -84,7 +84,7 @@ const login = async (formData) => {
   };
 
   try {
-    const res = await axios.post(`https://referral-backend-myev.onrender.com/api/auth/login`, formData, config);
+    const res = await axios.post(`http://localhost:5000/api/auth/login`, formData, config);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,

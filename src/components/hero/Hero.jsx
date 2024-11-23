@@ -3,9 +3,11 @@ import './style.css'
 import ReferralPopup from '../ReferralPopup/ReferralPopup';
 import ReferralCalculatorPopup from '../ReferralCalculatorPopup/ReferralCalculatorPopup';
 import AuthContext from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
-    const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const {user, isAuthenticated} = useContext(AuthContext)
     const data = [
         'If you refer a friend Pre-SET - You get ₹10,000 cash + Vouchers worth ₹2000 + 200 Be Practical coins',
         'If you refer a friend Post-SET - You get ₹5000 cash + Vouchers worth ₹1000 + 200 Be Practical coins',
@@ -13,7 +15,13 @@ function Hero() {
     ]
 
     const [showModal, setShowModal] = useState(false);
-    const handleShow = () =>{setShowModal(true)}
+    const handleShow = () =>{
+        if(isAuthenticated){
+            setShowModal(true)
+          }else{
+            navigate('/login')
+          }
+    }
     const handleHide = () =>{setShowModal(false)}
 
 

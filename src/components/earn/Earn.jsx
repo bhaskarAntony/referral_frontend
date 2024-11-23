@@ -1,13 +1,23 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import ReferralRewards from './ReferralRewards'
 import ReferralPopup from '../ReferralPopup/ReferralPopup';
 import Callback from '../callback/Callback';
 import pdf from '../../files/Referral_Program_Guide.pdf'
+import AuthContext from '../context/AuthContext';
 
 function Earn({show, onClose, onOpen}) {
     const [showModal, setShowModal] = useState(false);
-    const handleShow = () =>{setShowModal(true)}
+    const {isAuthenticated} = useContext(AuthContext);
+    const navigate = useNavigate();
+    
+    const handleShow = () =>{
+        if(isAuthenticated){
+            setShowModal(true)
+          }else{
+            navigate('/login')
+          }
+    }
     const handleHide = () =>{setShowModal(false)}
   return (
   <div className="bg-light py-3">

@@ -7,14 +7,23 @@ import Support from '../support/Support';
 import { Offcanvas } from 'react-bootstrap';
 import { deepPurple } from '@mui/material/colors';
 import { Avatar, Menu, MenuItem, Typography  } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header() {
     const [showModal, setShowModal] = useState(false);
     const [showCanvas, setCanvas] = useState(false)
-    const handleShow = () =>{setShowModal(true)}
+    const navigate = useNavigate();
+    const {user, logout, isAuthenticated} = useContext(AuthContext);
+
+    const handleShow = () =>{
+      if(isAuthenticated){
+        setShowModal(true)
+      }else{
+        navigate('/login')
+      }
+    }
     const handleHide = () =>{setShowModal(false)}
-    const {user, logout, isAuthenticated} = useContext(AuthContext)
+  
 
     const [anchorEl, setAnchorEl] = useState(null);
     const isMenuOpen = Boolean(anchorEl);

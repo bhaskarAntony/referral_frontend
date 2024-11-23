@@ -23,7 +23,7 @@ function Callback({ show, onClose }) {
     setIsLoading(true)
     e.preventDefault();
     try {
-      await axios.post('https://referral-backend-myev.onrender.com/api/new/callback', formData);
+      await axios.post('http://localhost:5000/api/new/callback', formData);
       setIsLoading(false)
       setPopup({ open: true, type: 'success', message: 'callback request sent successfully!' });
       onClose();

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Stepper, Step, StepLabel, Box, useMediaQuery, Paper, Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import cashImage from './cash.png';
 import coinsImage from './coins.png';
 import vocherImage from './vocher.png';
 import ReferralPopup from '../ReferralPopup/ReferralPopup';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 
 const ShareDetails = () => {
     const [showModal, setShowModal] = useState(false);
@@ -30,7 +32,16 @@ const ShareDetails = () => {
     }
   };
 
-  const handleShow = () =>{setShowModal(true)}
+  const {isAuthenticated} = useContext(AuthContext);
+  const navigate = useNavigate();
+  
+  const handleShow = () =>{
+      if(isAuthenticated){
+          setShowModal(true)
+        }else{
+          navigate('/login')
+        }
+  }
   const handleHide = () =>{setShowModal(false)}
 
   // Get the selected reward data based on selectedStep

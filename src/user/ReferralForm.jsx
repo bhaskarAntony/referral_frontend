@@ -14,7 +14,7 @@ function ReferralForm() {
   const navigate = useNavigate()
   // Fetch referral details
   useEffect(() => {
-    axios.get(`https://referral-backend-myev.onrender.com/api/referral/${referralId}`)
+    axios.get(`http://localhost:5000/api/referral/${referralId}`)
       .then(response => {
         setReferral(response.data.referral);
         setLoading(false);
@@ -32,7 +32,7 @@ function ReferralForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`https://referral-backend-myev.onrender.com/api/send/otp/${referralId}`, formData);
+      await axios.post(`http://localhost:5000/api/send/otp/${referralId}`, formData);
       localStorage.setItem('email', formData.email);
       navigate('/verify/otp')
       setPopup({ open: true, message: 'Details submitted successfully!', type: 'success' });

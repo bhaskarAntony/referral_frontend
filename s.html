@@ -1,20 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-  <script>
-    if ("vibrate" in navigator) {
-  // Vibrate for 500 milliseconds
-  navigator.vibrate(500);
-  console.log('yes');
-} else {
-  console.log("Vibration API not supported");
-}
-  </script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>COUNTER</title>
+        <style>
+            .box{
+                background-color: lightgray;
+                padding: 10px;
+                counter-reset: sadik;
+            }
+            h3::before {
+                counter-increment: sadik;
+                content: counter(sadik) ". ";
+                margin-left: 5px;
+                color:teal;
+            }
+            h3 {
+                counter-reset: tp;
+            }
+
+            h5::before {
+                counter-increment: tp;
+                content: counter(sadik) "." counter(tp) " ";
+                margin-left: 30px;
+                color:red;
+            }
+
+            h5 { counter-reset: subt;}
+
+            p::before {
+                counter-increment: subt;
+                content: counter(sadik) "." counter(tp) "." counter(subt) " ";
+                margin-left: 50px;
+                color:slateblue;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <h1>Counter</h1>
+        </center>
+        <hr>
+
+        <h1>Table of contents</h1>
+        <div class="box">
+            <h3>HTML</h3>
+                <h5>Header Tags</h5>
+                    <p>h1-h6</p>
+                <h5>Format Tags</h5>
+                    <p>paragraph</p>
+                    <p>bold</p>
+                    <p>italic</p>
+                    <p>underline</p>
+                <h5>Table Tags</h5>
+                    <p>thead,tbody,tfoot</p>
+                    <p>tr tag</p>
+                    <p>td,th tags</p>
+                <h5>List Tags</h5>
+                    <p>ordered list</p>
+                    <p>unordered list</p>
+                    <p>description list</p>
+                <h5>Form Tags</h5>
+            <h3>CSS</h3>
+                <h5>Selectors</h5>
+                    <p>universal selector</p>
+                    <p>default selectors</p>
+                    <p>combinators</p>
+                    <p>Group selector</p>
+                <h5>Background</h5>
+                    <p>background-url</p>
+                    <p>background-image</p>
+                    <p>background-color</p>
+                <h5>Font</h5>
+                <h5>Text</h5>
+                    <p>text-transform</p>
+                    <p>text-decoration</p>
+            <h3>JavaScript</h3>
+                <h5>Variables</h5>
+                <h5>Conditional and Looping statements</h5>
+                    <p>If condition</p>
+                    <p>If and else condition</p>
+                    <p>If, else if and else condition</p>
+                    <p>Switch case condition</p>
+                <h5>Functions</h5>
+            <h3>React</h3>
+                <h5>Components</h5>
+                <h5>State and Props</h5>
+                <h5>Lifecycle Methods</h5>
+                <h5>Hooks</h5>
+                    <p>state hooks</p>
+                    <p>effect hooks</p>
+                    <p>performance hooks</p>
+                    <p>context hooks</p>
+        </div>
+    </body>
 </html>

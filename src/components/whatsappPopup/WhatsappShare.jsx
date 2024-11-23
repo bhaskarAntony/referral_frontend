@@ -37,7 +37,7 @@ function WhatsappShare({ show, onClose }) {
 
     try {
       // Send data to the backend
-      const response = await axios.post('https://referral-backend-myev.onrender.com/api/new/referral', {
+      const response = await axios.post('http://localhost:5000/api/new/referral', {
         fullname,
         course,
         couponCode,

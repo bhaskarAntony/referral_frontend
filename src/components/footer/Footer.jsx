@@ -15,10 +15,10 @@ function Footer() {
                 <h3 className="fs-4 fw-bold text-danger">Quick Links</h3>
                 <hr />
                 <ul>
-                    <li><a href="">About us</a></li>
-                    <li><a href="">Our Mission</a></li>
-                    <li><a href="">Our Vission</a></li>
-                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="https://be-practical.com/about-us-2">About us</a></li>
+                    <li><a href="https://be-practical.com/about-us-2">Our Mission</a></li>
+                    <li><a href="https://be-practical.com/about-us-2">Our Vission</a></li>
+                    <li><a href="https://be-practical.com/contact-us">Contact us</a></li>
                 </ul>
             </div>
 
@@ -26,10 +26,10 @@ function Footer() {
                 <h3 className="fs-4 fw-bold text-danger">Our Courses</h3>
                 <hr />
                 <ul>
-                    <li><a href="">Full Stack Development Courses</a></li>
-                    <li><a href="">Data Science Courses</a></li>
-                    <li><a href="">Digital Marketing Courses</a></li>
-                    <li><a href="">Cloud Computing Courses</a></li>
+                    <li><a href="https://be-practical.com/advanced-full-stack-developers-course-in-bangalore">Full Stack Development Courses</a></li>
+                    <li><a href="https://be-practical.com/data-science-course-in-bangalore">Data Science Courses</a></li>
+                    <li><a href="https://be-practical.com/advanced-digital-marketing-program">Digital Marketing Courses</a></li>
+                    <li><a href="https://be-practical.com/advanced-cloud-computing-aws">Cloud Computing Courses</a></li>
                    
                 </ul>
             </div>
@@ -37,9 +37,9 @@ function Footer() {
             <h3 className="fs-4 fw-bold text-danger">For Companies</h3>
             <hr />
                 <ul>
-                <li><a href="">Corporate Training</a></li>
-                    <li><a href="">HR services</a></li>
-                    <li><a href="">Hire trained graduates</a></li>
+                <li><a href="https://www.be-practicalhr.com/corporate-training-services-bangalore">Corporate Training</a></li>
+                    <li><a href="https://www.be-practicalhr.com/">HR services</a></li>
+                    <li><a href="https://www.be-practicalhr.com/hire-train-deploy-services-bangalore">Hire trained graduates</a></li>
                  
                 </ul>
             </div>

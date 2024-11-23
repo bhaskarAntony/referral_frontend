@@ -64,92 +64,96 @@ const RewardsPage = () => {
      
 
       {/* Rewards Progress */}
-      <div className="shares">
+      <div className="shares row">
   {referralRewards.map((reward, index) => (
-    index > 0 ? (
-      // If the current reward shares are greater than the previous reward shares
-      successfulShares > referralRewards[index - 1].shares ? (
-        // If the successful shares are greater than or equal to the current reward shares
-        successfulShares >= reward.shares ? (
-          // Reward Unlocked
-          <div className="share-card p-3 border mb-3 completed" key={index}>
-            <div className="d-flex flex-wrap gap-3">
-              <span className="fs-6"><img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" />Reward: {reward.cashReward}</span>
-              <span className="fs-6"><img src="https://img1.picmix.com/output/stamp/thumb/0/1/1/6/1456110_56f42.gif" alt="" /> Coins: {reward.coins}</span>
-              <span className="fs-6"><img src="https://cdn.pixabay.com/animation/2023/11/29/03/39/03-39-03-19_512.gif" alt="" />Vouchers: {reward.vouchers}</span>
+   <div className="col-md-6 mb-3">
+    {
+       index > 0 ? (
+        // If the current reward shares are greater than the previous reward shares
+        successfulShares > referralRewards[index - 1].shares ? (
+          // If the successful shares are greater than or equal to the current reward shares
+          successfulShares >= reward.shares ? (
+            // Reward Unlocked
+            <div className="share-card p-3 border mb-3 completed h-100" key={index}>
+              <div className="d-flex flex-wrap gap-3">
+                <span className="fs-6"><img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" />Reward: {reward.cashReward}</span>
+                <span className="fs-6"><img src="https://img1.picmix.com/output/stamp/thumb/0/1/1/6/1456110_56f42.gif" alt="" /> Coins: {reward.coins}</span>
+                <span className="fs-6"><img src="https://cdn.pixabay.com/animation/2023/11/29/03/39/03-39-03-19_512.gif" alt="" />Vouchers: {reward.vouchers}</span>
+              </div>
+              <div>
+                <h1 className="fs-1"><i class="bi bi-unlock-fill"></i> {reward.shares} shares 🎉 Reward Completed!</h1>
+              </div>
             </div>
-            <div>
-              <h1 className="fs-1"><i class="bi bi-unlock-fill"></i> {reward.shares} shares 🎉 Reward Completed!</h1>
+          ) : (
+            // Shares Progress (current reward not unlocked yet)
+            <div className="share-card p-3 border mb-3 in_progress h-100" key={index}>
+              <div className="d-flex flex-wrap gap-3">
+                <span className="fs-6"><img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" />Reward: {reward.cashReward}</span>
+                <span className="fs-6"><img src="https://img1.picmix.com/output/stamp/thumb/0/1/1/6/1456110_56f42.gif" alt="" /> Coins: {reward.coins}</span>
+                <span className="fs-6"><img src="https://cdn.pixabay.com/animation/2023/11/29/03/39/03-39-03-19_512.gif" alt="" />Vouchers: {reward.vouchers}</span>
+              </div>
+              <progress min='0' max='100' value={(successfulShares/ reward.shares)*100}></progress>
+              <div>
+              <p className="fs-5 mt-2">
+                just Share <strong>{reward.shares - successfulShares} friends to get this Reward</strong>
+              </p>
+                <h1 className="fs-1">
+                  Shares: {successfulShares} / {reward.shares}
+                </h1>
+              </div>
             </div>
-          </div>
+          )
         ) : (
-          // Shares Progress (current reward not unlocked yet)
-          <div className="share-card p-3 border mb-3 in_progress" key={index}>
+          // No progress (successfulShares are less than the previous reward's shares)
+          <div className="share-card p-3 border mb-3 pending h-100" key={index}>
             <div className="d-flex flex-wrap gap-3">
               <span className="fs-6"><img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" />Reward: {reward.cashReward}</span>
               <span className="fs-6"><img src="https://img1.picmix.com/output/stamp/thumb/0/1/1/6/1456110_56f42.gif" alt="" /> Coins: {reward.coins}</span>
               <span className="fs-6"><img src="https://cdn.pixabay.com/animation/2023/11/29/03/39/03-39-03-19_512.gif" alt="" />Vouchers: {reward.vouchers}</span>
             </div>
-            <progress min='0' max='100' value={(successfulShares/ reward.shares)*100}></progress>
             <div>
-            <p className="fs-5 mt-2">
-              just Share <strong>{reward.shares - successfulShares} friends to get this Reward</strong>
-            </p>
-              <h1 className="fs-1">
-                Shares: {successfulShares} / {reward.shares}
-              </h1>
+              <h1 className="fs-1"><i class="bi bi-lock-fill"></i> reward Locked</h1>
+              <p className="fs-5 text-danger">Complte Previous Reward to Unlock this Rewards</p>
             </div>
           </div>
         )
       ) : (
-        // No progress (successfulShares are less than the previous reward's shares)
-        <div className="share-card p-3 border mb-3 pending" key={index}>
+        // Case for the first reward (index === 0)
+        successfulShares >= reward.shares ? (
+          <div className="share-card p-3 border mb-3 completed h-100" key={index}>
           <div className="d-flex flex-wrap gap-3">
             <span className="fs-6"><img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" />Reward: {reward.cashReward}</span>
             <span className="fs-6"><img src="https://img1.picmix.com/output/stamp/thumb/0/1/1/6/1456110_56f42.gif" alt="" /> Coins: {reward.coins}</span>
             <span className="fs-6"><img src="https://cdn.pixabay.com/animation/2023/11/29/03/39/03-39-03-19_512.gif" alt="" />Vouchers: {reward.vouchers}</span>
           </div>
           <div>
-            <h1 className="fs-1"><i class="bi bi-lock-fill"></i> reward Locked</h1>
-            <p className="fs-5 text-danger">Complte Previous Reward to Unlock this Rewards</p>
+            <h1 className="fs-1"><i class="bi bi-unlock-fill"></i> {reward.shares} shares 🎉 Reward Completed!</h1>
           </div>
         </div>
+        ) : (
+          <div className="share-card p-3 border mb-3 in_progress h-100" key={index}>
+            <div className="d-flex flex-wrap gap-3">
+              <span className="fs-6"><img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" />Reward: {reward.cashReward}</span>
+              <span className="fs-6"><img src="https://img1.picmix.com/output/stamp/thumb/0/1/1/6/1456110_56f42.gif" alt="" />Coins: {reward.coins}</span>
+              <span className="fs-6"><img src="https://cdn.pixabay.com/animation/2023/11/29/03/39/03-39-03-19_512.gif" alt="" />Vouchers: {reward.vouchers}</span>
+            </div>
+            <hr />
+            <div>
+              <p className="fs-5 mt-2">
+                just Share <strong>{reward.shares - successfulShares} friends to get this Reward</strong>
+              </p>
+              <progress min='0' max='100' value={(successfulShares/ reward.shares)*100}></progress>
+              <h1 className="fs-1">
+                Shares: {successfulShares} / {reward.shares}
+              </h1>
+            </div>
+  
+            <button className="btn-light btn p-2 px-4" onClick={handleShowWhatsappShare}><i class="bi bi-send"></i>  Share more</button>
+          </div>
+        )
       )
-    ) : (
-      // Case for the first reward (index === 0)
-      successfulShares >= reward.shares ? (
-        <div className="share-card p-3 border mb-3 completed" key={index}>
-        <div className="d-flex flex-wrap gap-3">
-          <span className="fs-6"><img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" />Reward: {reward.cashReward}</span>
-          <span className="fs-6"><img src="https://img1.picmix.com/output/stamp/thumb/0/1/1/6/1456110_56f42.gif" alt="" /> Coins: {reward.coins}</span>
-          <span className="fs-6"><img src="https://cdn.pixabay.com/animation/2023/11/29/03/39/03-39-03-19_512.gif" alt="" />Vouchers: {reward.vouchers}</span>
-        </div>
-        <div>
-          <h1 className="fs-1"><i class="bi bi-unlock-fill"></i> {reward.shares} shares 🎉 Reward Completed!</h1>
-        </div>
-      </div>
-      ) : (
-        <div className="share-card p-3 border mb-3 in_progress" key={index}>
-          <div className="d-flex flex-wrap gap-3">
-            <span className="fs-6"><img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" />Reward: {reward.cashReward}</span>
-            <span className="fs-6"><img src="https://img1.picmix.com/output/stamp/thumb/0/1/1/6/1456110_56f42.gif" alt="" />Coins: {reward.coins}</span>
-            <span className="fs-6"><img src="https://cdn.pixabay.com/animation/2023/11/29/03/39/03-39-03-19_512.gif" alt="" />Vouchers: {reward.vouchers}</span>
-          </div>
-          <hr />
-          <div>
-            <p className="fs-5 mt-2">
-              just Share <strong>{reward.shares - successfulShares} friends to get this Reward</strong>
-            </p>
-            <progress min='0' max='100' value={(successfulShares/ reward.shares)*100}></progress>
-            <h1 className="fs-1">
-              Shares: {successfulShares} / {reward.shares}
-            </h1>
-          </div>
-
-          <button className="btn-light btn p-2 px-4" onClick={handleShowWhatsappShare}><i class="bi bi-send"></i>  Share more</button>
-        </div>
-      )
-    )
+    }
+   </div>
   ))}
 </div>
 

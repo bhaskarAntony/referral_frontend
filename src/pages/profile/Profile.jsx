@@ -3,6 +3,7 @@ import './style.css'
 import AuthContext from '../../components/context/AuthContext'
 import { Tab, Tabs } from 'react-bootstrap'
 import RewardsPage from './RewardsPage'
+import ReferralRewardsPage from './referralRewardsPage copy'
 
 function Profile() {
     const {user, logout, isAuthenticated} = useContext(AuthContext)
@@ -19,7 +20,7 @@ function Profile() {
              <div className="rewards row mt-3">
            <div className="col-md-4 mb-3">
            <div className="card p-3 mt-3 h-100">
-              <p className="fs-6 fw-bold"> <img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" /> Earned Cash Rewards :</p>
+              <p className="fs-6 fw-bold"> <img src="https://i.gifer.com/origin/9b/9be3cc63d40d8ea231322e87d6aab7ca_w200.gif" alt="" /> Earned Cash Rewards</p>
               <h1 className="fs-1 fw-bold"> &#8377; {user?.sharesData?.filter((share) => share.isregistered).length * 4}</h1>
             </div>
            </div>
@@ -50,7 +51,7 @@ function Profile() {
       <RewardsPage/>
       </Tab>
       <Tab eventKey="my_referrals" title={`My Referrals (${user?.referrals?.filter((share) => share.isregistered).length})`}>
-        
+        <ReferralRewardsPage/>
       </Tab>
 
      

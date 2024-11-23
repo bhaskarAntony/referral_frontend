@@ -17,11 +17,11 @@ function App() {
       <BrowserRouter>
       <Header/>
       <Routes>
-       <Route path='/' element={<PrivateRoute><Home/></PrivateRoute>}/>
+       <Route path='/' element={<Home/>}/>
        <Route path='/login' element={<Login/>}/>
        <Route path='/register' element={<Register/>}/>
        <Route path="/enroll/course/:referralId" element={<ReferralForm />} />
-       <Route path="/profile" element={<Profile />} />
+       <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
        <Route path="/verify/otp" element={<Otp />} />
       </Routes>
       <Footer/>

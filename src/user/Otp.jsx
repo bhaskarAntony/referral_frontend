@@ -37,7 +37,7 @@ function Otp() {
 
     try {
       // If OTP is empty, request OTP first
-      const response = await axios.post(`https://referral-backend-myev.onrender.com/api/referral/register`, formData);
+      const response = await axios.post(`http://localhost:5000/api/referral/register`, formData);
       setPopup({ open: true, message: response.data.message, type: response.data.success ? 'success' : 'error' });
       navigate('/');
     } catch (error) {
@@ -50,7 +50,7 @@ function Otp() {
   const resendOTP = async () => {
     try {
       // Request new OTP from the server
-      const response = await axios.post(`https://referral-backend-myev.onrender.com/api/referral/send-otp/${referralId}`, { email: formData.email });
+      const response = await axios.post(`http://localhost:5000/api/referral/send-otp/${referralId}`, { email: formData.email });
       setPopup({ open: true, message: response.data.message, type: 'success' });
       setTimer(300);  // Reset timer to 5 minutes after resending OTP
     } catch (error) {
