@@ -45,7 +45,7 @@ function WhatsappShare({ show, onClose }) {
       });
 
       // Generate WhatsApp link with the unique referral URL
-      const invitationMessage = `Hello! ${fullname} is inviting you to join the ${course} course. Use the coupon code "${couponCode}" for an exclusive discount! Enroll here: ${response.data.link}`;
+      const invitationMessage = `Hello! ${fullname}, ${user.name} is inviting you to join the ${course} course in *Be Practical tech solutions*. Use the coupon code "${couponCode}" for an exclusive discount! Enroll here: ${response.data.link}`;
       const whatsappURL = `https://wa.me/?text=${encodeURIComponent(invitationMessage)}`;
 
       // Open WhatsApp link
