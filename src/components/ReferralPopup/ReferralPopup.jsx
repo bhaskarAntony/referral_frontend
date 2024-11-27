@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button, Form } from 'react-bootstrap';
-import { TelephoneFill, PersonPlus, Link } from 'react-bootstrap-icons';
+import { TelephoneFill, PersonPlus } from 'react-bootstrap-icons';
 import axios from 'axios';
 import './style.css';
 import AuthContext from '../context/AuthContext';
@@ -9,6 +9,7 @@ import Loading from '../loading/Loading';
 import { Alert, Snackbar } from '@mui/material';
 import Callback from '../callback/Callback';
 import WhatsappShare from '../whatsappPopup/WhatsappShare';
+import { Link } from 'react-router-dom';
 
 function ReferralPopup({ show, hide }) {
   const [showFormModal, setShowFormModal] = useState(false);
@@ -114,8 +115,8 @@ function ReferralPopup({ show, hide }) {
           <div className="row w-100">
             <div className="col-md-7">
               <span className="text-secondary small">
-                You can also share referral code with your friend 
-                <Link to=''> Copy referral Code</Link>
+                You can also share courses Inviation on Whatsapp
+                <Link to=''  onClick={handleShowWhatsappShare} className='text-danger'> share now</Link>
               </span>
             </div>
             <div className="col-md-5 d-flex flex-wrap btn-100 justify-content-end align-items-center">

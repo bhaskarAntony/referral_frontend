@@ -16,7 +16,7 @@ function WhyShouldRefer() {
                 <img src="https://img.freepik.com/premium-vector/group-business-people-silhouette-businesspeople-walk-step-forward-abstract-background_48369-15949.jpg?ga=GA1.1.1538238808.1729515699&semt=ais_hybrid" alt="" className="w-100 rounded" />
             </div>
             <div className="col-md-6 mt-4 mt-md-0">
-                <h1 className="fs-3 fw-bold"><span className="text-primary">Why</span> should I refer?</h1>
+                <h1 className="fs-3 fw-bold"><span className="text-primary">Why</span> should I Refer? or Share Invitation</h1>
 
                 <ul className="mt-3" style={{padding:'0', marginLeft:'15px'}}>
                     {

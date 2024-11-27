@@ -62,15 +62,19 @@ const AuthState = ({ children }) => {
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
+      console.log(res.data);
+      
 
       // Set token in the auth header after successful registration
       setAuthToken(res.data.token);
       loadUser();
+      return true;
     } catch (err) {
       dispatch({
         type: REGISTER_FAIL,
         payload: err.response.data.message,
       });
+      return false;
     }
   };
 

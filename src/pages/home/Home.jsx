@@ -8,6 +8,7 @@ import WhyShouldRefer from '../../components/whyShouldRefer/WhyShouldRefer'
 import ReferralPopup from '../../components/ReferralPopup/ReferralPopup'
 import Activitytabs from '../../components/activityTabs/Activitytabs'
 import ShareDetails from '../../components/shares/ShareDetails'
+import ShareRewardsTable from '../../components/ReferralRewardsTable/ShareRewardsTable'
 
 function Home() {
   const [showCallback, setShowCallback] = useState(false);
@@ -18,7 +19,9 @@ function Home() {
         <Hero/>
         <ShareDetails/>
         <Earn show={showCallback} onClose={handleHideCallback} onOpen={handleShowCallback}/>
+       
         <ReferralRewardsTable/>
+        <ShareRewardsTable/>
         <WhoCanRefer/>
         {/* <Activitytabs/> */}
         <WhyShouldRefer/>

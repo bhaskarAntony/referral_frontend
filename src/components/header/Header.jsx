@@ -50,7 +50,7 @@ function Header() {
     <header className=' p-md-2 p-3'>
         <nav class="navbar navbar-expand-lg container">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="https://bepractical.s3.us-east-2.amazonaws.com/brand-logo.cc6e3cf088a8fd3005b1.jpg" alt="logo" className="logo" /></a>
+    <a class="navbar-brand" href="/"><img src="https://bepractical.s3.us-east-2.amazonaws.com/brand-logo.cc6e3cf088a8fd3005b1.jpg" alt="logo" className="logo" /></a>
     
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
      
@@ -68,7 +68,7 @@ function Header() {
         sx={{ bgcolor: deepPurple[500], cursor: 'pointer' }}
         onClick={handleAvatarClick}
       >
-        {(user?.name).slice(0, 2).toUpperCase()}
+        {(user?.name)?.slice(0, 2).toUpperCase()}
       </Avatar>
 
       <Menu

@@ -32,7 +32,7 @@ const WhoCanRefer = () => {
 
   return (
     <div className="container text-center mt-4 p-3 p-md-2">
-      <h3 className="mb-4">Who can <span className="text-primary">refer?</span></h3>
+      <h3 className="mb-4">Who can <span className="text-primary">Refer?  or<span className="text-danger"> Share invitaion</span></span></h3>
       <div className="row justify-content-center">
         {referData.map((item, index) => (
           <div key={index} className="col-6 col-md-2 text-center mb-4 d-flex flex-column justify-content-between align-items-center">

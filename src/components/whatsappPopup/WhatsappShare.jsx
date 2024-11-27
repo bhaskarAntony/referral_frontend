@@ -10,7 +10,8 @@ function WhatsappShare({ show, onClose }) {
   const [message, setMessage] = useState({
     fullname: '',
     course: '',
-    couponCode: user?.couponCode || '',
+    couponCode: user?.couponCode,
+    friendphonenumber:''
   });
   const [popup, setPopup] = useState({ open: false, type: '', message: '' });
   const [isLoading, setIsLoading] = useState(false);
@@ -86,8 +87,19 @@ function WhatsappShare({ show, onClose }) {
                 />
               </Form.Group>
               <br />
+              <Form.Group controlId="friendName">
+                <Form.Label>Friend's Phone Number<span className="text-danger">*</span></Form.Label>
+                <Form.Control
+                  type="tel"
+                  name="friendphonenumber"
+                  value={message.friendphonenumber}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <br />
               <Form.Group controlId="selectCourse">
-                <Form.Label>Select Course <span className="text-danger">*</span></Form.Label>
+                <Form.Label>Select Course for your friend <span className="text-danger">*</span></Form.Label>
                 <Form.Control
                   as="select"
                   name="course"

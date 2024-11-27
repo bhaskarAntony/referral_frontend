@@ -4,17 +4,16 @@ import rewardImage from './reward.png'
 import './style.css'
 import ReferralCalculatorPopup from '../ReferralCalculatorPopup/ReferralCalculatorPopup';
 
-const ReferralRewardsTable = () => {
-  const referralRewards = [
-    { shares: 25, cashReward: '₹100', coins: 50, vouchers: '₹150' },
-    { shares: 50, cashReward: '₹200', coins: 100, vouchers: '₹250' },
-    { shares: 75, cashReward: '₹300', coins: 200, vouchers: '₹350' },
-    { shares: 100, cashReward: '₹400', coins: 300, vouchers: '₹450' },
-    { shares: 125, cashReward: '₹500', coins: 400, vouchers: '₹550' },
-    { shares: 150, cashReward: '₹600', coins: 500, vouchers: '₹650' },
-    { shares: 175, cashReward: '₹700', coins: 600, vouchers: '₹750' },
-    { shares: 200, cashReward: '₹800', coins: 700, vouchers: '₹850' },
+const ShareRewardsTable = () => {
+  const preSetData = [
+    { referrals: 1, cash: '₹1,000', coins: 200, vouchers: '₹500' },
+    { referrals: 2, cash: '₹2,000', coins: 400, vouchers: '₹1,000' },
+    { referrals: 3, cash: '₹3,000', coins: 600, vouchers: '₹1,500' },
+    { referrals: 4, cash: '₹4,000', coins: 800, vouchers: '₹2,000' },
+    { referrals: 5, cash: '₹5,000', coins: 1000, vouchers: '₹2,500' },
   ];
+
+ 
 
   const [calculator, setCalculator] = useState(false);
 
@@ -26,7 +25,7 @@ const ReferralRewardsTable = () => {
         <div className="container mt-4">
     <div className="row align-items-center">
         <div className="col-md-8">
-        <h3 className="fw-bold mb-4">Rewards you get for successful Shares</h3>
+        <h3 className="fw-bold mb-4">Rewards you get for successful referrals</h3>
         </div>
         <div className="col-md-4 d-flex justify-content-end btn-100">
             <button className="btn btn-outline-primary btn-100" onClick={showCalculator}><i class="bi bi-calculator"></i> Rewards Calculator</button>
@@ -34,14 +33,14 @@ const ReferralRewardsTable = () => {
     </div>
       <div className="row">
         <div className="col-md-12 mb-4 m-auto">
-        <h5 className='fs-5 text-primary mt-3'>For learners whom you shared invitation for just Registration</h5>
+        <h5 className='fs-5 text-primary mt-3'>For learners whom you referred for Course Enrollment</h5>
           <div className="reward-table">
          
             <div className="bg-white p-3">
             <table className="table table-bordered mt-3">
               <thead className="thead-light">
                 <tr>
-                  <th>Shares</th>
+                  <th>Referrals</th>
                   <th>Cash</th>
                   <th>Coins</th>
                   <th>E-Vouchers</th>
@@ -49,10 +48,10 @@ const ReferralRewardsTable = () => {
                 </tr>
               </thead>
               <tbody>
-                {referralRewards.map((row, index) => (
+                {preSetData.map((row, index) => (
                   <tr key={index}>
-                    <td>{row.shares} shares</td>
-                    <td>{row.cashReward}</td>
+                    <td>{row.referrals}</td>
+                    <td>{row.cash}</td>
                     <td>{row.coins}</td>
                     <td>
                       <img src={rewardImage} alt="E-Voucher" />
@@ -100,4 +99,4 @@ const ReferralRewardsTable = () => {
   );
 };
 
-export default ReferralRewardsTable;
+export default ShareRewardsTable;

@@ -9,9 +9,9 @@ function Hero() {
     const navigate = useNavigate()
     const {user, isAuthenticated} = useContext(AuthContext)
     const data = [
-        'If you refer a friend Pre-SET - You get ₹10,000 cash + Vouchers worth ₹2000 + 200 Be Practical coins',
-        'If you refer a friend Post-SET - You get ₹5000 cash + Vouchers worth ₹1000 + 200 Be Practical coins',
-        'They get ₹10,000 off on the course.'
+        'Get ₹100, 50 Coins, and a ₹100 Voucher for every 25 shares using your unique referral code.',
+        'When someone registers and enrolls using your code, earn ₹1,000, 50 Coins, and a ₹500 Voucher instantly!',
+        'Help your friends grow while you earn exciting rewards'
     ]
 
     const [showModal, setShowModal] = useState(false);
@@ -35,7 +35,8 @@ function Hero() {
     <section className="container p-md-2 p-3 hero">
         <div className="row align-items-center">
             <div className="col-md-7">
-                <h1 className="fs-1 fw-bolder lh-base">Refer your friends and Earn up to <span className="text-primary">&#8377; 10,000</span> on every enrolment!</h1>
+                <h4 className="fs-6 text-danger">Share, Earn, and Learn with Ease!</h4>
+                <h1 className="fs-1 fw-bolder lh-base">Refer your friends and Earn up to <span className="text-primary">&#8377; 1000 Cash +</span> <span className="text-danger">  &#8377; 500 Worthable Voucher</span> +<span className="text-primary"> 50 Coins</span> on every enrolment!</h1>
                 <ul className='mt-3'>
                    {
                     data.map((item, index)=>(
@@ -45,7 +46,7 @@ function Hero() {
                 </ul>
                 <small className="small text-secondary"><span className="text-danger">*</span>Terms and Conditions Apply</small> <br />
                <div className="d-flex flex-wrap gap-2">
-               <button className="btn-main mt-3" onClick={handleShow}>Start Referring Now</button>
+               <button className="btn-main mt-3" onClick={handleShow}>Start Referring Now and Watch Your Rewards Grow!</button>
                <button className="btn btn-outline-primary mt-3 px-4 p-2" onClick={showCalculator}>Referral Calculator</button>
                </div>
                <small className="small text-secondary mt-2 d-block">So far, more Be Practicalites have successfully referred more learners!</small>
