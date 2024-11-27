@@ -6,15 +6,15 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Loading from '../components/loading/Loading';
 
 function ReferralForm() {
-  const { referralId } = useParams();
+  const { referralId, couponCode} = useParams();
   const [referral, setReferral] = useState(null);
-  const [formData, setFormData] = useState({ fullname: '', email: '', phoneNumber: '', course: '', couponCode:'' });
+  const [formData, setFormData] = useState({ fullname: '', email: '', phoneNumber: '', course: '', couponCode:couponCode });
   const [loading, setLoading] = useState(true);
   const [popup, setPopup] = useState({ open: false, message: '', type: '' });
   const navigate = useNavigate()
   // Fetch referral details
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/referral/${referralId}`)
+    axios.get(`https://referral-backend-myev.onrender.com/api/referral/${referralId}`)
       .then(response => {
         setReferral(response.data.referral);
         setLoading(false);
@@ -31,12 +31,15 @@ function ReferralForm() {
   // Submit form data
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
-      await axios.post(`http://localhost:5000/api/send/otp/${referralId}`, formData);
+      await axios.post(`https://referral-backend-myev.onrender.com/api/send/otp/${referralId}`, formData);
       localStorage.setItem('email', formData.email);
       navigate('/verify/otp')
+      setLoading(false)
       setPopup({ open: true, message: 'Details submitted successfully!', type: 'success' });
     } catch {
+      setLoading(false)
       setPopup({ open: true, message: 'Error submitting details', type: 'error' });
     }
   };
@@ -96,6 +99,7 @@ function ReferralForm() {
                     value={formData.couponCode}
                     onChange={handleChange}
                     required
+                    disabled
                   />
                 </Form.Group>
                 <Form.Group controlId="interestedCourse" className="mt-3">

@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { Alert, Snackbar } from '@mui/material';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import Loading from '../components/loading/Loading';
 
 function Otp() {
   const { referralId } = useParams();
@@ -13,7 +14,7 @@ function Otp() {
     email: localStorage.getItem('email') || ''  // Get email from local storage if available
   });
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [popup, setPopup] = useState({ open: false, message: '', type: '' });
   
   // Timer states
@@ -29,6 +30,7 @@ function Otp() {
   // Submit form data
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     
     if (!formData.email || !formData.otp) {
       setPopup({ open: true, message: 'Please provide both OTP.', type: 'error' });
@@ -37,10 +39,12 @@ function Otp() {
 
     try {
       // If OTP is empty, request OTP first
-      const response = await axios.post(`http://localhost:5000/api/referral/register`, formData);
+      const response = await axios.post(`https://referral-backend-myev.onrender.com/api/referral/register`, formData);
+      setLoading(false)
       setPopup({ open: true, message: response.data.message, type: response.data.success ? 'success' : 'error' });
       navigate('/');
     } catch (error) {
+      setLoading(false)
       console.error('Error submitting form:', error);
       setPopup({ open: true, message: error.message, type: 'error' });
     }
@@ -48,12 +52,15 @@ function Otp() {
 
   // Function to request a new OTP
   const resendOTP = async () => {
+    setLoading(true)
     try {
       // Request new OTP from the server
-      const response = await axios.post(`http://localhost:5000/api/referral/send-otp/${referralId}`, { email: formData.email });
+      const response = await axios.post(`https://referral-backend-myev.onrender.com/api/referral/send-otp/${referralId}`, { email: formData.email });
+      setLoading(false)
       setPopup({ open: true, message: response.data.message, type: 'success' });
       setTimer(300);  // Reset timer to 5 minutes after resending OTP
     } catch (error) {
+      setLoading(false)
       console.error('Error requesting OTP:', error);
       setPopup({ open: true, message: 'Failed to resend OTP.', type: 'error' });
     }
@@ -77,6 +84,9 @@ function Otp() {
     const seconds = time % 60;
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
+  if(loading){
+    return <Loading/>
+  }
 
   return (
     <Container className="p-3 p-md-5 user-register" fluid>

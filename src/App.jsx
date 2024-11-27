@@ -20,7 +20,7 @@ function App() {
        <Route path='/' element={<Home/>}/>
        <Route path='/login' element={<Login/>}/>
        <Route path='/register' element={<Register/>}/>
-       <Route path="/enroll/course/:referralId" element={<ReferralForm />} />
+       <Route path="/enroll/course/:referralId/:couponCode" element={<ReferralForm />} />
        <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
        <Route path="/verify/otp" element={<Otp />} />
       </Routes>

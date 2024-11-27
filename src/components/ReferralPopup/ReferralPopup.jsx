@@ -58,7 +58,7 @@ function ReferralPopup({ show, hide }) {
     e.preventDefault();
     setisLoading(true)
     try {
-      await axios.post('http://localhost:5000/api/new/friend', {...friendData, referredby:user?._id});
+      await axios.post('https://referral-backend-myev.onrender.com/api/new/friend', {...friendData, referredby:user?._id});
       setPopup({ open: true, type: 'success', message: 'Friend details added successfully!' });
       setisLoading(false)
       handleCloseFormModal();
