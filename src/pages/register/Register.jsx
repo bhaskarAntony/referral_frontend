@@ -3,6 +3,7 @@ import { Alert, Form, Button, Container } from 'react-bootstrap';
 import AuthContext from '../../components/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-bootstrap-icons';
+import Loading from '../../components/loading/Loading';
 
 const Register = () => {
   const authContext = useContext(AuthContext);
@@ -44,6 +45,9 @@ const navigate = useNavigate();
       }
     }
   };
+  if(loading){
+    return <Loading/>
+  }
 
   return (
   <section className="p-3 py-4 bg-light">
