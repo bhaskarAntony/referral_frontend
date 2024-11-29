@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './style.css'
 import coin from '../../images/coin.png'
 import ReferralPopup from '../ReferralPopup/ReferralPopup';
@@ -7,12 +7,13 @@ import Support from '../support/Support';
 import { Offcanvas } from 'react-bootstrap';
 import { deepPurple } from '@mui/material/colors';
 import { Avatar, Menu, MenuItem, Typography  } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Header() {
     const [showModal, setShowModal] = useState(false);
     const [showCanvas, setCanvas] = useState(false)
     const navigate = useNavigate();
+    const location = useLocation()
     const {user, logout, isAuthenticated} = useContext(AuthContext);
 
     const handleShow = () =>{
@@ -37,6 +38,14 @@ function Header() {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    useEffect(() => {
+     
+      setCanvas(false)
+    
+      
+    }, [location.pathname])
+    
     console.log(user);
     const [support, setSupport] = useState(false);
     const handleSupportShow = () =>{setSupport(true)}
@@ -45,6 +54,8 @@ function Header() {
 
     const showCanvasHandler = () =>setCanvas(true)
     const hideCanvasHandler = () =>setCanvas(false)
+
+    
     
   return (
     <header className=' p-md-2 p-3'>

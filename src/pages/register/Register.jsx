@@ -42,6 +42,8 @@ const navigate = useNavigate();
         setSuccessMessage('Registration successful!');
         navigate('/login')
         setUser({ name: '', email: '', password: '', phoneNumber: '' });
+      }else{
+        setLoading(false);
       }
     }
   };

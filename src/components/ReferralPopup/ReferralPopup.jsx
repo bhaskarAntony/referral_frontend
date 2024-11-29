@@ -138,18 +138,19 @@ function ReferralPopup({ show, hide }) {
           <div className="card p-3">
             <Form onSubmit={handleFormSubmit}>
               <Form.Group controlId="friendName">
-                <Form.Label>Name <span className="text-danger">*</span></Form.Label>
+                <Form.Label>Friend's Name <span className="text-danger">*</span></Form.Label>
                 <Form.Control
                   type="text"
                   name="friendname"
                   value={friendData.friendname}
                   onChange={handleInputChange}
+                  placeholder='Fullname'
                   required
                 />
               </Form.Group>
               <br />
               <Form.Group controlId="friendPhone">
-                <Form.Label>Phone <span className="text-danger">*</span></Form.Label>
+                <Form.Label>Friend's Phone Number<span className="text-danger">*</span></Form.Label>
                 <Form.Control
                   type="tel"
                   name="phonenumber"
@@ -161,7 +162,7 @@ function ReferralPopup({ show, hide }) {
               </Form.Group>
               <br />
               <Form.Group controlId="friendEmail">
-                <Form.Label>Email (optional)</Form.Label>
+                <Form.Label>Friend's Email Address<span className="text-danger">*</span></Form.Label>
                 <Form.Control
                   type="email"
                   name="email"

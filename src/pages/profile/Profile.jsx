@@ -50,9 +50,9 @@ function Profile() {
          <Tab eventKey="shares" title={`My Shares (${user?.sharesData?.filter((share) => share.isregistered).length})`}>
       <RewardsPage/>
       </Tab>
-      <Tab eventKey="my_referrals" title={`My Referrals (${user?.referrals?.filter((share) => share.isregistered).length})`}>
+      {/* <Tab eventKey="my_referrals" title={`My Referrals (${user?.referrals?.filter((share) => share.isregistered).length})`}>
         <ReferralRewardsPage/>
-      </Tab>
+      </Tab> */}
 
      
      
